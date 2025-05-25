@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-import { Mail, DiscIcon as Discord, Plus, Trash2, Edit } from "lucide-react";
+import { Mail, Plus, Trash2, Edit } from "lucide-react";
 import {
   Button,
   Input,
