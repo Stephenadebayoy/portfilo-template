@@ -40,5 +40,5 @@ No coding needed – **choose a template, edit inline, and launch your personal 
 
 ```bash
 git clone https://github.com/portlify/portlify.git
-cd portlify
+cd develop
 ```
