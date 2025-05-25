@@ -5,7 +5,7 @@
 **Portlify** is a sleek no-code portfolio builder built with **Next.js**, **TypeScript**, **Tailwind CSS**, **ShadCN UI**, and **Redux Toolkit**.  
 No coding needed – **choose a template, edit inline, and launch your personal brand** in minutes.
 
-> 🌐 Live Demo: [portlify.vercel.app](https://portlify.vercel.app)  
+> 🌐 Live Demo: [portlify-ten.vercel.app](https://portlify-ten.vercel.app)](https://portlify-ten.vercel.app/landing)  
 > 🧠 GitHub Repo: [github.com/portlify/portlify](https://github.com/portlify/portlify)
 
 ---
