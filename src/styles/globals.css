@@ -1,0 +1,61 @@
+/** @format */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+html {
+  scroll-behavior: smooth;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Add to your global CSS */
+@keyframes float {
+  0% {
+    transform: perspective(500px) rotateX(10deg) translateY(0);
+  }
+  50% {
+    transform: perspective(500px) rotateX(10deg) translateY(-8px);
+  }
+  100% {
+    transform: perspective(500px) rotateX(10deg) translateY(0);
+  }
+}
+
+.hero-heading:hover {
+  animation: float 2s ease-in-out infinite;
+}
