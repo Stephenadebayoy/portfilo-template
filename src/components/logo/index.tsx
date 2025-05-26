@@ -10,25 +10,19 @@ type LogoProps = {
   className?: string;
   width?: number | `${number}`;
   height?: number | `${number}`;
-
 };
 
-export const Logo = ({
-  className,
-  width = 150,
-  height = 100,
-
-}: LogoProps) => {
+export const Logo = ({ className, width = 250, height = 100 }: LogoProps) => {
   return (
     <Link
       href="/"
       className={cn("flex items-center justify-between md:block", className)}
     >
       <Image
-        src={"/images/logo.png"}
+        src={"/portlify.svg"}
         width={width}
         height={height}
-        alt="gigbanc Logo"
+        alt="portlify Logo"
         className={className}
       />
     </Link>

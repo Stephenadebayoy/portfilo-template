@@ -11,6 +11,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
 import { useRouter } from "next/navigation";
 import { ImageComponent } from "@/components/imageComponent";
+import { toast } from "@packages/_shared/toaster/toaster-provider";
 
 const ListOfTemplate = () => {
   const router = useRouter();
@@ -46,16 +47,16 @@ const ListOfTemplate = () => {
   const handleClick = (template: (typeof templates)[0]) => {
     setSelectedTemplate(template);
   };
-  // const handleToaster = () => {
-  //   toast({
-  //     title: "Coming Soon 🚧",
-  //     description:
-  //       "This open-source template will be available soon. Stay tuned for the release!",
-  //     duration: 5000,
-  //     type: "neutral",
-  //     direction: "top-right",
-  //   });
-  // };
+  const handleToaster = () => {
+    toast({
+      title: "Coming Soon 🚧",
+      description:
+        "This open-source template will be available soon. Stay tuned for the release!",
+      duration: 5000,
+      type: "neutral",
+      direction: "top-right",
+    });
+  };
 
   const handleClickNav = (template: number) => {
     router.push(`/preview/${template}`);
@@ -179,10 +180,14 @@ const ListOfTemplate = () => {
                       )}
 
                       <Button
-                        // onClick={handleToaster}
-                        onClick={() =>
-                          handleClickNav(selectedTemplate?.id as any)
-                        }
+                        onClick={() => {
+                          if (
+                            selectedTemplate?.id === "1" ||
+                            selectedTemplate?.id === "2"
+                          ) {
+                            handleClickNav(selectedTemplate?.id as any);
+                          } else handleToaster();
+                        }}
                         className={`w-full py-2  rounded-md text-sm font-semibold  `}
                       >
                         Use Template

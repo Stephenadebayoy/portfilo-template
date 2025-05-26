@@ -55,7 +55,7 @@ export const templates = [
       "Performance Optimization",
     ],
     price: null,
-    available: true,
+    available: false,
     rating: "⭐⭐⭐⭐⭐",
     heroSection: {
       headline: "Hi, I'm Tomasz Gajda",
@@ -296,6 +296,7 @@ export const templates = [
     ],
 
     otherSections: ["Blog", "Certifications", "Open Source Contributions"],
+    available: false,
   },
 
   {
@@ -313,7 +314,8 @@ export const templates = [
       "Typescript",
     ],
     price: "$19",
-    available: true,
+    available: false,
+
     rating: "⭐⭐⭐⭐☆", // 4 stars
     features: ["Hero", "Recommendation", "Projects", "Skills", "Footer"],
     heroSection: {

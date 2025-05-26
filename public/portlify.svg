@@ -1,0 +1,23 @@
+<svg viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Clean folder stack with P -->
+  <g transform="translate(8, 8)">
+    <rect x="2" y="6" width="20" height="14" rx="1.5" fill="url(#brandGradient)" opacity="0.6"/>
+    <rect x="1" y="3" width="20" height="14" rx="1.5" fill="url(#brandGradient)" opacity="0.8"/>
+    <rect x="0" y="0" width="20" height="14" rx="1.5" fill="url(#brandGradient)"/>
+    
+    <!-- Clean P -->
+    <path d="M5 3 L9 3 Q12 3 12 6 Q12 9 9 9 L7 9 L7 11 L5 11 Z M7 5 L7 7 L9 7 Q10 7 10 6 Q10 5 9 5 Z" fill="white"/>
+  </g>
+  
+  <!-- Clean text -->
+  <text x="32" y="25" font-family="Libre Baskerville, Georgia, serif" font-size="16" font-weight="400" fill="url(#brandGradient)">
+    Portlify
+  </text>
+</svg>
