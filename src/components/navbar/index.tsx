@@ -35,8 +35,8 @@ const NavBar = () => {
   return (
     <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg">
       <section className="flex justify-between items-center max-w-screen-custom px-4 mx-auto py-4 h-16">
-        <div className="">
-          <Logo />
+        <div className=" ">
+          <Logo noText={false} />
         </div>
         <div className="w-1/3 mx-auto">
           <UserTabs
