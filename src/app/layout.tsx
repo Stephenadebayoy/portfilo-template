@@ -11,7 +11,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfilo-template.vercel.app"),
+  metadataBase: new URL("https://portlify-navy.vercel.app"),
   title: "Build Your Stunning Portfolio in Minutes | Portfilo",
   description:
     "No coding needed. Choose a template, customize your style, and launch your personal brand with ease. Build your stunning portfolio website in minutes.",
@@ -27,16 +27,16 @@ export const metadata: Metadata = {
   applicationName: "Portfilo",
   robots: "index, follow",
   category: "Personal Branding, Portfolio Builder",
-  authors: [{ name: "Portfilo", url: "https://portfilo-template.vercel.app" }],
+  authors: [{ name: "Portfilo", url: "https://portlify-navy.vercel.app" }],
   openGraph: {
     title: "Build Your Stunning Portfolio in Minutes | Portfilo",
     description:
       "No coding needed. Choose a template, customize your style, and launch your personal brand with ease.",
-    url: "https://portfilo-template.vercel.app",
+    url: "https://portlify-navy.vercel.app",
     siteName: "Portfilo",
     images: [
       {
-        url: "https://portfilo-template.vercel.app/images/logo.png", 
+        url: "https://portlify-navy.vercel.app/images/logo.png",
         width: 1200,
         height: 630,
         alt: "Portfilo - Build Your Stunning Portfolio in Minutes",
@@ -47,11 +47,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@Portfilo", 
+    site: "@Portfilo",
     title: "Build Your Stunning Portfolio in Minutes | Portfilo",
     description:
       "No coding needed. Choose a template, customize your style, and launch your personal brand with ease.",
-    images: ["https://portfilo-template.vercel.app/images/logo.png"],
+    images: ["https://portlify-navy.vercel.app/images/logo.png"],
   },
   other: {
     "google-site-verification": "",
@@ -59,14 +59,14 @@ export const metadata: Metadata = {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "Portfilo Builder",
-      url: "https://portfilo-template.vercel.app",
-      logo: "https://portfilo-template.vercel.app/images/logo.png",
+      url: "https://portlify-navy.vercel.app",
+      logo: "https://portlify-navy.vercel.app/images/logo.png",
       description:
         "No coding needed. Choose a template, customize your style, and launch your personal brand with ease.",
     }),
   },
   alternates: {
-    canonical: "https://portfilo-template.vercel.app",
+    canonical: "https://portlify-navy.vercel.app",
   },
 };
 
