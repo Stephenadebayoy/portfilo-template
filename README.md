@@ -5,7 +5,7 @@
 **Portlify** is a sleek no-code portfolio builder built with **Next.js**, **TypeScript**, **Tailwind CSS**, **ShadCN UI**, and **Redux Toolkit**.  
 No coding needed – **choose a template, edit inline, and launch your personal brand** in minutes.
 
-> 🌐 Live Demo: [portlify-ten.vercel.app](https://portlify-ten.vercel.app)](https://portlify-ten.vercel.app/landing)  
+> 🌐 Live Demo: [portlify-navy.vercel.app](https://portlify-navy.vercel.app/)](https://portlify-navy.vercel.app/landing)  
 > 🧠 GitHub Repo: [github.com/portlify/portlify](https://github.com/portlify/portlify)
 
 ---
@@ -42,3 +42,14 @@ No coding needed – **choose a template, edit inline, and launch your personal 
 git clone https://github.com/portlify/portlify.git
 cd develop
 ```
+
+---
+
+## 📬 Need a Custom Portfolio?
+
+Portlify is 100% open-source and free to use under the MIT License.  
+If you're an individual or a company looking for a **custom portfolio setup** using Portlify, I also offer professional assistance.
+
+📧 **Contact**: [stephenadebayo17@gmail.com](mailto:stephenadebayo17@gmail.com)
+
+> 💼 _Note: Optional services like setup, customization, or design consulting may incur a fee._
