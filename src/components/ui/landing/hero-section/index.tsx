@@ -40,7 +40,7 @@ const HeroSection = () => {
   return (
     <div className=" max-w-screen-custom px-4 mx-auto">
       <section className="">
-        <TextHoverEffect text="TànIṣẹ " />
+        <TextHoverEffect text="Portlify " />
       </section>
 
       <BlurIn
