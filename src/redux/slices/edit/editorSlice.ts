@@ -2,9 +2,19 @@
 
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+export interface StyledText {
+  text: string;
+  color?: string; // e.g. "#FF0000"
+  fontSize?: string; // e.g. "14px", "1.2rem"
+  fontWeight?: string; // e.g. "bold", "400"
+  fontStyle?: string; // e.g. "italic"
+  // add more style props as needed
+}
+
 export type EditorDataValue =
   | string
   | string[]
+  | StyledText
   | { [key: string]: EditorDataValue | null };
 
 export interface EditorData {
@@ -15,12 +25,14 @@ interface EditorState {
   data: EditorData;
   currentTemplateId: number | null;
   isDirty: boolean;
+  activeFieldId: string | null; // added active field id
 }
 
 const initialState: EditorState = {
   data: {},
   currentTemplateId: null,
   isDirty: false,
+  activeFieldId: null,
 };
 
 // Helper function to deep update nested fields given a dot-separated path
@@ -43,6 +55,27 @@ function deepUpdate(
   };
 }
 
+function deepDelete(obj: EditorData, keys: string[]): EditorData {
+  if (keys.length === 1) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { [keys[0]]: _, ...rest } = obj;
+    return rest;
+  }
+
+  const key = keys[0];
+  if (!(key in obj)) return obj;
+
+  return {
+    ...obj,
+    [key]: deepDelete(obj[key] as EditorData, keys.slice(1)),
+  };
+}
+
+interface UpdateFieldStylePayload {
+  id: string; // dot-separated path to the field
+  styles: Partial<StyledText>; // partial styles to update (e.g., { color: "#00f" })
+}
+
 export const editorSlice = createSlice({
   name: "editor",
   initialState,
@@ -57,10 +90,44 @@ export const editorSlice = createSlice({
       state.isDirty = true;
     },
 
+    updateFieldStyle: (
+      state,
+      action: PayloadAction<UpdateFieldStylePayload>
+    ) => {
+      const { id, styles } = action.payload;
+      const path = id.split(".");
+
+      // Traverse to get existing value
+      let currentValue: EditorDataValue | null = state.data;
+      for (const segment of path) {
+        if (!currentValue || typeof currentValue !== "object") {
+          currentValue = null;
+          break;
+        }
+        currentValue = (currentValue as any)[segment] ?? null;
+      }
+
+      // If current value is StyledText, merge styles; else create new with empty text
+      let newValue: StyledText;
+      if (
+        currentValue &&
+        typeof currentValue === "object" &&
+        "text" in currentValue
+      ) {
+        newValue = { ...(currentValue as StyledText), ...styles };
+      } else {
+        newValue = { text: "", ...styles };
+      }
+
+      state.data = deepUpdate(state.data, path, newValue);
+      state.isDirty = true;
+    },
+
     resetEditor: (state) => {
       state.data = {};
       state.currentTemplateId = null;
       state.isDirty = false;
+      state.activeFieldId = null;
     },
 
     loadTemplate: (
@@ -71,6 +138,7 @@ export const editorSlice = createSlice({
       state.currentTemplateId = templateId;
       state.data = { ...data };
       state.isDirty = false;
+      state.activeFieldId = null;
     },
 
     bulkUpdate: (state, action: PayloadAction<EditorData>) => {
@@ -80,36 +148,45 @@ export const editorSlice = createSlice({
 
     removeField: (state, action: PayloadAction<string>) => {
       const path = action.payload.split(".");
-
-      // Helper to deep delete
-      function deepDelete(obj: EditorData, keys: string[]): EditorData {
-        if (keys.length === 1) {
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          const { [keys[0]]: _, ...rest } = obj;
-          return rest;
-        }
-
-        const key = keys[0];
-        if (!(key in obj)) return obj;
-
-        return {
-          ...obj,
-          [key]: deepDelete(obj[key] as EditorData, keys.slice(1)),
-        };
-      }
-
       state.data = deepDelete(state.data, path);
       state.isDirty = true;
+    },
+
+    setSegment: (
+      state,
+      action: PayloadAction<{ segment: string; data: EditorDataValue | null }>
+    ) => {
+      const { segment, data } = action.payload;
+      state.data[segment] = data;
+      state.isDirty = true;
+    },
+
+    removeSegment: (state, action: PayloadAction<string>) => {
+      const segment = action.payload;
+      if (segment in state.data) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { [segment]: _, ...rest } = state.data;
+        state.data = rest;
+        state.isDirty = true;
+      }
+    },
+
+    setActiveFieldId: (state, action: PayloadAction<string | null>) => {
+      state.activeFieldId = action.payload;
     },
   },
 });
 
 export const {
   updateField,
+  updateFieldStyle,
   resetEditor,
   loadTemplate,
   bulkUpdate,
   removeField,
+  setSegment,
+  removeSegment,
+  setActiveFieldId,
 } = editorSlice.actions;
 
 export default editorSlice.reducer;

@@ -858,3 +858,26 @@ export const allSkills: Skill[] = [
   { title: "API Documentation", icon: null },
   { title: "Agile/Scrum", icon: null },
 ];
+
+export const fonts = [
+  "Arial, sans-serif",
+  "'Helvetica Neue', Helvetica, Arial, sans-serif",
+  "'Times New Roman', serif",
+  "'Georgia', serif",
+  "'Courier New', monospace",
+  "'Lucida Console', Monaco, monospace",
+  "'Verdana', Geneva, sans-serif",
+  "'Trebuchet MS', Helvetica, sans-serif",
+  "'Palatino Linotype', 'Book Antiqua', Palatino, serif",
+  "'Garamond', serif",
+  "'Comic Sans MS', cursive, sans-serif",
+  "'Impact', Charcoal, sans-serif",
+  "'Tahoma', Geneva, sans-serif",
+  "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+  "'Calibri', Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif",
+  "'Gill Sans', 'Gill Sans MT', Calibri, sans-serif",
+  "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
+  "'Century Gothic', CenturyGothic, AppleGothic, sans-serif",
+  "'Courier', monospace",
+  "'Brush Script MT', cursive",
+];
