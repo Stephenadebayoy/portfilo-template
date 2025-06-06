@@ -146,19 +146,19 @@ export const SocialMediaEditor = ({
           );
         })}
 
-        {editMode && (
-          <div
-            className="flex w-8 h-8 justify-center border-primary items-center rounded-full gap-2 border-dashed border cursor-pointer"
-            onClick={() => {
-              setEditingPlatform(null);
-              setSelectedPlatform("");
-              setUrl("");
-              setIsOpen(true);
-            }}
-          >
-            <Plus className="w-3 h-3" />
-          </div>
-        )}
+        {/* {editMode && ( */}
+        <div
+          className="flex w-8 h-8 justify-center border-primary items-center rounded-full gap-2 border-dashed border cursor-pointer"
+          onClick={() => {
+            setEditingPlatform(null);
+            setSelectedPlatform("");
+            setUrl("");
+            setIsOpen(true);
+          }}
+        >
+          <Plus className="w-3 h-3" />
+        </div>
+        {/* )} */}
       </div>
 
       <Modal
